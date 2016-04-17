@@ -1,7 +1,9 @@
 //Establish the WebSocket connection and set up event handlers
 var webSocket = new WebSocket("ws://" + location.hostname + ":" + location.port + "/chat/");
 webSocket.onmessage = function (msg) { updateChat(msg); };
-webSocket.onclose = function () { alert("WebSocket connection closed") };
+webSocket.onclose = function () {
+/*    alert("WebSocket connection closed")*/
+};
 
 //Send message if "Send" is clicked
 id("send").addEventListener("click", function () {

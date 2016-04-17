@@ -51,7 +51,7 @@ var Game = function () {
                         if (enemy.x === wallX && enemy.y === wallY) {
                             enemy.show = true;
                         }
-                        ;
+
                     }
                     x += dX;
                     y += dY;
@@ -80,7 +80,7 @@ var Game = function () {
                         if (enemy.x === wallX && enemy.y === wallY) {
                             enemy.show = true;
                         }
-                        ;
+
                     }
                     x += dX;
                     y += dY;
@@ -90,7 +90,8 @@ var Game = function () {
                     var enemyDistanceY = enemy.y + .5 - player.y;
                     enemy.angle = Math.atan(enemyDistanceY / enemyDistanceX) - player.angle;
                     enemy.distance =
-                        Math.sqrt(enemyDistanceX * enemyDistanceX + enemyDistanceY * enemyDistanceY);
+                        Math.sqrt(
+                            enemyDistanceX * enemyDistanceX + enemyDistanceY * enemyDistanceY);
                 }
                 ;
                 minimap.rays.push([xHit, yHit]);
@@ -107,10 +108,9 @@ var Game = function () {
                 } else {
                     backgroundSlivers.push([i, wallTop, wallBottom, color]);
                 }
-                ;
             }
         }
-    }
+    };
     var player = {
         init: function () {
             this.x = 10;
@@ -146,7 +146,7 @@ var Game = function () {
                                          minimap.cellWidth / 2, minimap.cellHeight / 2);
             };
         }
-    }
+    };
 
     function containsBlock(x, y) {
         return (map[Math.floor(y)][Math.floor(x)] !== -1);
@@ -199,13 +199,13 @@ var Game = function () {
                         } else {
                             this.context.fillStyle = this.colors[map[y][x]];
                         }
-                        ;
+
                         this.context.fillRect(this.cellWidth * x, this.cellHeight * y,
                                               this.cellWidth, this.cellHeight);
                     }
-                    ;
+
                 }
-                ;
+
                 for (var i = 0; i < this.rays.length; i++) {
                     this.drawRay(this.rays[i][0], this.rays[i][1])
                 }
@@ -253,15 +253,21 @@ var Game = function () {
                     var color = "rgb(" + red + "," + green + "," + blue + ")";
                     this.walls[i].push(color);
                 }
-                ;
+
             }
-            ;
+
         }
-    }
+    };
+
     var enemy = {
         init: function () {
             this.sprite =
-                new jaws.Sprite({image: "./assets/sprites/enemy.png", x: 0, y: canvas.height / 2, anchor: "center"});
+                new jaws.Sprite({
+                    image: "./assets/sprites/enemy.png",
+                    x: 0,
+                    y: canvas.height / 2,
+                    anchor: "center"
+                });
             this.x = 12;
             this.y = 4;
             this.show = false;
@@ -280,7 +286,7 @@ var Game = function () {
                 if (this.adjustedAngle > 180 || this.adjustedAngle < -180) {
                     this.adjustedAngle %= 180;
                 }
-                ;
+
                 this.sprite.x = this.adjustedAngle / potentialWidth * canvas.width;
                 this.sprite.draw();
             };
@@ -293,15 +299,15 @@ var Game = function () {
         for (var i = 0; i < backgroundSlivers.length; i++) {
             canvas.drawSliver.apply(canvas, backgroundSlivers[i]);
         }
-        ;
+
         if (enemy.show) {
             enemy.draw();
         }
-        ;
+
         for (var i = 0; i < foregroundSlivers.length; i++) {
             canvas.drawSliver.apply(canvas, foregroundSlivers[i]);
         }
-        ;
+
     };
     this.setup = function () {
         gun.init();
@@ -315,36 +321,53 @@ var Game = function () {
     this.update = function () {
         raycaster.castRays();
         if (jaws.pressed("a")) {
-            player.direction = -0.3
+            player.direction = -0.3;
         }
-        ;
+
         if (jaws.pressed("d")) {
-            player.direction = 0.3
+            player.direction = 0.3;
         }
-        ;
+
         if (jaws.pressed("w")) {
-            player.speed = 1
+            player.speed = 1;
         }
-        ;
+
         if (jaws.pressed("s")) {
-            player.speed = -1
+            player.speed = -1;
         }
-        ;
+
+
+        if (jaws.pressed("left")) {
+            enemy.x -=  enemy.x -1;
+        }
+
+        if (jaws.pressed("right")) {
+            enemy.x += 0.5;
+        }
+
+        if (jaws.pressed("up")) {
+            enemy.y -= 0.5;
+        }
+
+        if (jaws.pressed("down")) {
+            enemy.y += 0.5;
+        }
+
 
         if (jaws.on_keyup(["a", "d"], function () {
                 player.direction = 0;
             })) {
-            ;
+
         }
         if (jaws.on_keyup(["w", "s"], function () {
                 player.speed = 0;
             })) {
-            ;
+
         }
         if (jaws.pressed("space")) {
             gun.fire();
         }
-        ;
+
         player.move();
     };
-}
+};
