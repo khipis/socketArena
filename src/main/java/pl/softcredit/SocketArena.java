@@ -1,3 +1,5 @@
+package pl.softcredit;
+
 import static spark.Spark.get;
 
 public class SocketArena {
