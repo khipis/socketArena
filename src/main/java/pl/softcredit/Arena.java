@@ -24,17 +24,28 @@ public class Arena {
         init();
     }
 
+    public static void broadcastPosition(String sender, String position) {
+        userUsernameMap.keySet().stream().filter(Session::isOpen).forEach(session -> {
+            try {
+                session.getRemote().sendString(String.valueOf(
+                        new JSONObject().put("user",sender).put("position", position)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
     public static void broadcastMessage(String sender, String message) {
         userUsernameMap.keySet().stream().filter(Session::isOpen).forEach(session -> {
             try {
                 session.getRemote().sendString(String.valueOf(
                         new JSONObject().put("userMessage",
-                                                                                   createHtmlMessageFromSender(
-                                                                                           sender,
-                                                                                           message))
-                                                                      .put("userlist",
-                                                                           userUsernameMap
-                                                                                   .values())));
+                                             createHtmlMessageFromSender(
+                                                     sender,
+                                                     message))
+                                .put("userlist",
+                                     userUsernameMap
+                                             .values())));
             } catch (Exception e) {
                 e.printStackTrace();
             }
