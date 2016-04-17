@@ -12,27 +12,28 @@
 <div id="screenshot-wrapper">
     <canvas id="screenshot"></canvas>
 </div>
+
+
+
+<div id="chatControls">
+    <input id="message">
+</div>
+
+
+<div id="userlist"> <!-- Built by JS --> </div>
+<div id="chat">    <!-- Built by JS --> </div>
+
+
+
 <script type="text/javascript" src="./assets/engine/jquery.js"></script>
 <script type="text/javascript" src="./assets/engine/jaws.js"></script>
 <script type="text/javascript" src="./assets/engine/level1.js"></script>
 <script type="text/javascript" src="./assets/engine/game.js"></script>
-<script type="text/javascript" src="./assets/engine/socks.js"></script>
+<script type="text/javascript" src="./assets/engine/webSockets.js"></script>
 <script>
     jaws.assets.add(["./assets/sprites/enemy.png"])
     jaws.start(Game);
 </script>
-
-
-<div id="chatControls">
-    <input id="message" placeholder="Type your message">
-    <button id="send">Send</button>
-</div>
-
-
-<ul id="userlist"> <!-- Built by JS --> </ul>
-<div id="chat">    <!-- Built by JS --> </div>
-
-
 
 </body>
 </html>

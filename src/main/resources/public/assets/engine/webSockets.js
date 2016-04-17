@@ -1,16 +1,10 @@
 //Establish the WebSocket connection and set up event handlers
-var webSocket = new WebSocket("ws://" + location.hostname + ":" + location.port + "/chat/");
+var webSocket = new WebSocket("ws://" + location.hostname + ":" + location.port + "/arena/");
 webSocket.onmessage = function (msg) { updateChat(msg); };
 webSocket.onclose = function () {
-/*    alert("WebSocket connection closed")*/
+    console.log("WebSocket connection closed");
 };
 
-//Send message if "Send" is clicked
-id("send").addEventListener("click", function () {
-    sendMessage(id("message").value);
-});
-
-//Send message if enter is pressed in the input field
 id("message").addEventListener("keypress", function (e) {
     if (e.keyCode === 13) { sendMessage(e.target.value); }
 });

@@ -318,6 +318,8 @@ var Game = function () {
         palette.init();
         enemy.init();
     };
+    
+    
     this.update = function () {
         raycaster.castRays();
         if (jaws.pressed("a")) {
@@ -340,20 +342,7 @@ var Game = function () {
         if (jaws.pressed("left")) {
             enemy.x -=  enemy.x -1;
         }
-
-        if (jaws.pressed("right")) {
-            enemy.x += 0.5;
-        }
-
-        if (jaws.pressed("up")) {
-            enemy.y -= 0.5;
-        }
-
-        if (jaws.pressed("down")) {
-            enemy.y += 0.5;
-        }
-
-
+        
         if (jaws.on_keyup(["a", "d"], function () {
                 player.direction = 0;
             })) {

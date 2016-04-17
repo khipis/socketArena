@@ -27,4 +27,10 @@
     top: 335px;
 }
 
+#chat, #userlist{
+    color: #21d502;
+    font-family: "Courier New", serif;
+    font-size: small;
+}
+
 
