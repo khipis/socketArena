@@ -19,7 +19,8 @@ public class Arena {
 
     public static void main(String[] args) {
         staticFileLocation("public");
-        webSocket("/arena", WebSocketHandler.class);
+        webSocket("/chat", ChatWebSocketHandler.class);
+        webSocket("/arena", GameWebSocketHandler.class);
         init();
     }
 

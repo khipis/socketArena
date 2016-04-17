@@ -318,8 +318,7 @@ var Game = function () {
         palette.init();
         enemy.init();
     };
-    
-    
+
     this.update = function () {
         raycaster.castRays();
         if (jaws.pressed("a")) {
@@ -332,17 +331,19 @@ var Game = function () {
 
         if (jaws.pressed("w")) {
             player.speed = 1;
+            webSocket.send(player.x + ':' + player.y);
         }
 
         if (jaws.pressed("s")) {
             player.speed = -1;
+            webSocket.send(player.x + ':' + player.y);
         }
-
 
         if (jaws.pressed("left")) {
-            enemy.x -=  enemy.x -1;
+            enemy.x -= enemy.x - 1;
+            webSocket.send(player.x + ':' + player.y);
         }
-        
+
         if (jaws.on_keyup(["a", "d"], function () {
                 player.direction = 0;
             })) {
@@ -356,6 +357,8 @@ var Game = function () {
         if (jaws.pressed("space")) {
             gun.fire();
         }
+
+
 
         player.move();
     };
