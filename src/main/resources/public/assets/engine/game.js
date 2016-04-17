@@ -261,7 +261,7 @@ var Game = function () {
     var enemy = {
         init: function () {
             this.sprite =
-                new jaws.Sprite({image: "enemy.png", x: 0, y: canvas.height / 2, anchor: "center"});
+                new jaws.Sprite({image: "./assets/sprites/enemy.png", x: 0, y: canvas.height / 2, anchor: "center"});
             this.x = 12;
             this.y = 4;
             this.show = false;

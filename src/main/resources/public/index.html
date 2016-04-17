@@ -1,41 +1,38 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
+<head>
     <title>SocketArena</title>
-    <link rel="stylesheet" type="text/css" href="game.css">
-  <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./assets/css/game.css">
+    <meta charset="utf-8">
 </head>
-  <body>
-    <canvas id="canvas"></canvas>
-    <canvas id="minimap"></canvas>
-    <img id="gun" src="gun.png">
-    <div id="screenshot-wrapper"><canvas id="screenshot"></canvas></div>
-    <script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript" src="jaws.js"></script>
-    <script type="text/javascript" src="level1.js"></script>
-    <script type="text/javascript" src="game.js"></script>
-    <script>
-      jaws.assets.add(["enemy.png"])
-      jaws.start(Game);
-    </script>
+<body>
+<canvas id="canvas"></canvas>
+<canvas id="minimap"></canvas>
+<img id="gun" src="./assets/sprites/gun.png">
+<div id="screenshot-wrapper">
+    <canvas id="screenshot"></canvas>
+</div>
+<script type="text/javascript" src="./assets/engine/jquery.js"></script>
+<script type="text/javascript" src="./assets/engine/jaws.js"></script>
+<script type="text/javascript" src="./assets/engine/level1.js"></script>
+<script type="text/javascript" src="./assets/engine/game.js"></script>
+<script type="text/javascript" src="./assets/engine/socks.js"></script>
+<script>
+    jaws.assets.add(["./assets/sprites/enemy.png"])
+    jaws.start(Game);
+</script>
+
+
+<div id="chatControls">
+    <input id="message" placeholder="Type your message">
+    <button id="send">Send</button>
+</div>
+
+
+<ul id="userlist"> <!-- Built by JS --> </ul>
+<div id="chat">    <!-- Built by JS --> </div>
 
 
 
-
-
-
-    <div id="chatControls">
-      <input id="message" placeholder="Type your message">
-      <button id="send">Send</button>
-    </div>
-    <ul id="userlist"> <!-- Built by JS --> </ul>
-    <div id="chat">    <!-- Built by JS --> </div>
-    <script src="websocketDemo.js"></script>
-
-
-
-
-
-
-  </body>
+</body>
 </html>
