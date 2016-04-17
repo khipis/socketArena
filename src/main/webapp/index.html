@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>FPS</title>
+    <link rel="stylesheet" type="text/css" href="game.css">
+  <meta charset="utf-8">
+</head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <canvas id="minimap"></canvas>
+    <img id="gun" src="gun.png">
+    <div id="screenshot-wrapper"><canvas id="screenshot"></canvas></div>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="jaws.js"></script>
+    <script type="text/javascript" src="level1.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script>
+      jaws.assets.add(["enemy.png"])
+      jaws.start(Game);
+    </script>
+  </body>
+</html>
