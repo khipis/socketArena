@@ -1,3 +1,5 @@
-# pl.softcredit.SocketArena
+#  SocketArena
 
-Multiplayer game for learning WebSockets :)
+Multiplayer game for learning WebSockets :) 
+ABANDONED - WebSockets learned, switched to better engines ;)
+
