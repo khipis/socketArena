@@ -1,6 +1,6 @@
 #  SocketArena
 
 Multiplayer game for learning WebSockets :) 
-ABANDONED - WebSockets learned, switched to better engines ;)
+ABANDONED - WebSockets learned and I've decide to switch to better engine ;)
 
 ![screenshot](scr.png)
