@@ -1,6 +1,6 @@
 var chatWebsocket = new WebSocket('ws://' + location.hostname + ':' + location.port + '/chat');
 chatWebsocket.onmessage = function (msg) {
-    // updateChat(msg);
+    updateChat(msg);
     var data = JSON.parse(msg.data);
     var positionXY = data.position;
 
